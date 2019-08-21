@@ -180,7 +180,9 @@ wild.boot <- function(x, design = "fixed", distr = "rademacher", n.ahead = 20,
         temp <- tryCatch(id.garch(varb, restriction_matrix = x$restriction_matrix, max.iter = x$max.iter,
                                   crit = x$crit),
                          error = function(e) NULL)
-      }else{
+      }else if(x$method == "Recursive"){
+        temp <- id.recursive(varb)
+        } else {
         temp <- tryCatch(id.st_boot(varb, c_fix = x$est_c, transition_variable = x$transition_variable, restriction_matrix = x$restriction_matrix,
                                     gamma_fix = x$est_g, max.iter = x$iteration, crit = 0.01, Z = Z),
                          error = function(e) NULL)
@@ -238,7 +240,8 @@ wild.boot <- function(x, design = "fixed", distr = "rademacher", n.ahead = 20,
         temp <- tryCatch(id.garch(varb, restriction_matrix = x$restriction_matrix, max.iter = x$max.iter,
                                   crit = x$crit),
                          error = function(e) NULL)
-      }
+      } else if(x$method == "Recursive"){
+        temp <- id.recursive(varb)
     }
 
     if(!is.null(temp)){

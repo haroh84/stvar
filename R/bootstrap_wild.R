@@ -242,7 +242,8 @@ wild.boot <- function(x, design = "fixed", distr = "rademacher", n.ahead = 20,
                          error = function(e) NULL)
       } else {
         temp <- id.chol(varb)
-    }
+      }
+    } # for design "recursive"
 
     if(!is.null(temp)){
       Pstar <- temp$B

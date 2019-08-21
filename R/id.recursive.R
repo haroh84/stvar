@@ -71,8 +71,8 @@ id.chol <- function(x){
                  type = type,    # type of the VAR model e.g 'const'
                  y = yOut,       # Data
                  p = unname(p),  # number of lags
-                 K = k,          # number of time series
-                 PIT=PIT         #
+                 K = k          # number of time series
+
   )
   class(result) <- "svars"
   return(result)

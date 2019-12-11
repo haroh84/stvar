@@ -1,5 +1,9 @@
 ####################################
 ###  stvar IRF plot functions:  ####
+#
+### plot st-var irf with two regimes
+### does not support confidence bands, use function plot.sbootst
+### supports plotting IRFs of several models in one graph
 
 plot.stvarirf <- function(x, regime = c("first","second" , "both"),  scales = "free_y",...){
 

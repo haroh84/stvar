@@ -1,7 +1,7 @@
 ####################################
 ###  stvar IRF plot functions:  ####
 #
-### plot st-var generalized irfs over time
+### plot st-var generalized irfs for specific threshold values of the transition variable
 ### supports plotting of multiple model's GIRFs
 
 
@@ -47,4 +47,16 @@ plot.girfsingle <- function(x, modname = NULL, scales = "free_y",...){
 
   print(gg)
   return(gg)
+}
+
+
+
+
+
+### function to extract the irf difference btw. generalized IRFs from trans. varibable threshold (above and below) or similar,
+### such that it can be plotted by plot.girfsingle
+get_irf_diff <- function(x){
+  out <- list(irflow = x$irfdiff)
+  class(out) <- "girfsingle"
+  return(out)
 }
